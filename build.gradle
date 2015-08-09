@@ -1,0 +1,80 @@
+
+apply plugin: 'java'
+
+final String androidHome=System.getenv("ANDROID_HOME")
+final String androidLibRepo=System.getenv("ANDROID_LIB_REPO")
+final String androidVer=21
+final String androidJarPath=androidHome+"/platforms/android-"+androidVer
+
+archivesBaseName = 'libtanudjaja-android-common'
+version = '1.0.0'
+group = 'id.web.tanudjaja.android'
+
+repositories
+{
+	mavenCentral()
+	flatDir { dirs androidJarPath, androidLibRepo }
+}
+
+dependencies
+{
+	compile name: 'android'
+	testCompile 'junit:junit:4.12'
+}
+
+task(install, dependsOn: build) <<
+{
+	final String output=libsDir.getAbsolutePath() + '/' + archivesBaseName + '-' + version + '.jar'
+	File f = file(output)
+	if(f.exists())
+	{
+		copy
+		{
+			from output
+			into androidLibRepo
+		}
+		println 'Installation success.'
+	}
+	else
+	{
+		println 'Installation failed. File ' + output + ' not found.'
+	}
+}
+
+configure(install)
+{
+	group = 'Install'
+	description = 'Installs the jar to ' + androidLibRepo
+}
+
+task(uninstall) <<
+{
+	final String installedFile=androidLibRepo + '/' + archivesBaseName + '-' + version + '.jar'
+	delete installedFile
+}
+
+configure(uninstall)
+{
+	group = 'Install'
+	description = 'Removes the installed jar from ' + androidLibRepo
+}
+
+task (distclean, dependsOn: clean) <<
+{
+	delete ".gradle"
+}
+
+configure(distclean)
+{
+	group = 'Build'
+	description = 'Clean the build result and the .gradle directory'
+}
+
+test
+{
+	testLogging
+	{
+		events 'started', 'passed'
+	}
+}
+
