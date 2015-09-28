@@ -1,9 +1,11 @@
 
 apply plugin: 'java'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 final String androidHome=System.getenv("ANDROID_HOME")
 final String androidLibRepo=System.getenv("ANDROID_LIB_REPO")
-final String androidVer=21
+final String androidVer=22
 final String androidJarPath=androidHome+"/platforms/android-"+androidVer
 
 archivesBaseName = 'libtanudjaja-android-common'
