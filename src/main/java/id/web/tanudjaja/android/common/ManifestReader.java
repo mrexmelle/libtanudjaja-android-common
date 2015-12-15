@@ -10,13 +10,13 @@ import android.os.Bundle;
 /**
  * A class to read the value of meta-data tags from an AndroidManifest.xml.
  * @author	Harisen Ong
- * @since	0.2.0
+ * @since	0.1.0
  */
 public class ManifestReader
 {
 	/**
 	 * Reads the value from the meta-data tag.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aContext	The context from which the function can get the package name.
 	 * @param	aFullKeyName	The key of the meta-data tag.
 	 * @return	The value of the meta-data tag.
@@ -46,7 +46,7 @@ public class ManifestReader
 
 	/**
 	 * Reads the value from the meta-data tag and return the value in Object.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aContext	The context from which the function can get the package name.
 	 * @param	aFullKeyName	The key of the meta-data tag.
 	 * @return	The value of the meta-data tag.
@@ -58,7 +58,7 @@ public class ManifestReader
 
 	/**
 	 * Reads the value from the meta-data tag and return the value in String.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aContext	The context from which the function can get the package name.
 	 * @param	aFullKeyName	The key of the meta-data tag.
 	 * @return	The value of the meta-data tag. If the tag with specified key is not found, it returns false.
@@ -72,7 +72,7 @@ public class ManifestReader
 
 	/**
 	 * Reads the value from the meta-data tag and return the value in Integer.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aContext	The context from which the function can get the package name.
 	 * @param	aFullKeyName	The key of the meta-data tag.
 	 * @return	The value of the meta-data tag. If the tag with specified key is not found, it returns null.
@@ -98,7 +98,7 @@ public class ManifestReader
 
 	/**
 	 * Reads the value from the meta-data tag and return the value in boolean.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aContext	The context from which the function can get the package name.
 	 * @param	aFullKeyName	The key of the meta-data tag.
 	 * @return	The value of the meta-data tag. If the tag with specified key is not found, it returns false.

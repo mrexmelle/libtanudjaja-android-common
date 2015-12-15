@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -13,7 +14,6 @@ import java.util.Comparator;
 import android.content.Context;
 import android.util.Log;
 
-import id.web.tanudjaja.android.common.port.TError;
 import id.web.tanudjaja.android.common.port.stdc;
 
 /**
@@ -37,9 +37,10 @@ public final class FileUtils
 	 * @param	aFilename The filename where the text is to be saved.
 	 * @param	aText The text to be written.
 	 * @param	aAppend if set to true, the <u>aText</u> will be appended to <u>aFilename</u> if it exists. If <u>aFilename</u>, a new file will be created.
-	 * @return	The writing operation.
+	 * throw	FileNotFoundException, IOException.
 	 */
-	public static TError saveToInternalStorage(Context aContext, String aFilename, String aText, boolean aAppend)
+	public static void saveToInternalStorage(Context aContext, String aFilename, String aText, boolean aAppend)
+		throws IOException
 	{
 		FileOutputStream fos=null;
 		try
@@ -51,7 +52,6 @@ public final class FileUtils
 			fos = aContext.openFileOutput(aFilename, flags);
 			fos.write(aText.getBytes("UTF-8"));
 			fos.close();
-			return TError.KErrNone;
 		}
 		catch(Exception e)
 		{
@@ -62,11 +62,11 @@ public final class FileUtils
 					fos.close();
 				}
 			}
-			catch(Exception e1)
+			catch(IOException e1)
 			{
-
+				
 			}
-			return TError.KErrGeneral;
+			throw e;
 		}
 	}
 
@@ -103,14 +103,14 @@ public final class FileUtils
 		{
 		    try
 		    {
-			if (fis != null)
-			{
-			    fis.close();
-			}
+				if (fis != null)
+				{
+					fis.close();
+				}
 		    }
 		    catch(Exception e1)
 		    {
-			return "";
+				return "";
 		    }
 		    return "";
 		}

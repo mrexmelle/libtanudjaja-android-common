@@ -1,4 +1,7 @@
 
+Version 1.0.2:
+Add errno to port package
+
 Version 1.0.1:
 Add source and target flags so the library is usable by host application using JDK 7
 

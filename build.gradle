@@ -1,5 +1,6 @@
 
 apply plugin: 'java'
+apply plugin: 'maven'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
@@ -9,12 +10,13 @@ final String androidVer=22
 final String androidJarPath=androidHome+"/platforms/android-"+androidVer
 
 archivesBaseName = 'libtanudjaja-android-common'
-version = '1.0.1'
+version = '1.0.2'
 group = 'id.web.tanudjaja.android'
 
 repositories
 {
 	mavenCentral()
+	mavenLocal()
 	flatDir { dirs androidJarPath, androidLibRepo }
 }
 
@@ -24,42 +26,42 @@ dependencies
 	testCompile 'junit:junit:4.12'
 }
 
-task(install, dependsOn: build) <<
-{
-	final String output=libsDir.getAbsolutePath() + '/' + archivesBaseName + '-' + version + '.jar'
-	File f = file(output)
-	if(f.exists())
-	{
-		copy
-		{
-			from output
-			into androidLibRepo
-		}
-		println 'Installation success.'
-	}
-	else
-	{
-		println 'Installation failed. File ' + output + ' not found.'
-	}
-}
+//task(install, dependsOn: build) <<
+//{
+//	final String output=libsDir.getAbsolutePath() + '/' + archivesBaseName + '-' + version + '.jar'
+//	File f = file(output)
+//	if(f.exists())
+//	{
+//		copy
+//		{
+//			from output
+//			into androidLibRepo
+//		}
+//		println 'Installation success.'
+//	}
+//	else
+//	{
+//		println 'Installation failed. File ' + output + ' not found.'
+//	}
+//}
 
-configure(install)
-{
-	group = 'Install'
-	description = 'Installs the jar to ' + androidLibRepo
-}
+//configure(install)
+//{
+//	group = 'Install'
+//	description = 'Installs the jar to ' + androidLibRepo
+//}
 
-task(uninstall) <<
-{
-	final String installedFile=androidLibRepo + '/' + archivesBaseName + '-' + version + '.jar'
-	delete installedFile
-}
+//task(uninstall) <<
+//{
+//	final String installedFile=androidLibRepo + '/' + archivesBaseName + '-' + version + '.jar'
+//	delete installedFile
+//}
 
-configure(uninstall)
-{
-	group = 'Install'
-	description = 'Removes the installed jar from ' + androidLibRepo
-}
+//configure(uninstall)
+//{
+//	group = 'Install'
+//	description = 'Removes the installed jar from ' + androidLibRepo
+//}
 
 task (distclean, dependsOn: clean) <<
 {

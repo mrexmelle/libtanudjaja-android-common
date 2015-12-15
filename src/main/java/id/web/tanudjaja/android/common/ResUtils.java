@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 /**
  * A class to read the value of meta-data tags from an AndroidManifest.xml.
  * @author	Jaka Tambunan
- * @since	0.2.0
+ * @since	0.1.0
  */
 public class ResUtils
 {
@@ -21,7 +21,7 @@ public class ResUtils
 	
 	/**
 	 * Gets an inner class of a specified class.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aClass		The main class where an inner class is expected to be in.
 	 * @param	aInnerClassName	The name of the expected inner class.
 	 * @return	The inner class if found, null if not found.
@@ -41,7 +41,7 @@ public class ResUtils
 	
 	/**
 	 * Gets the resource id with specific parameter.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aResClass	The namespace of main resource package.
 	 * @param	aResCollection	The group where the resource belongs (e.g. id, anim, drawable, color, etc).
 	 * @param	aResName	The name of the expected resource.
@@ -68,7 +68,7 @@ public class ResUtils
 	
 	/**
 	 * Gets the resource id with specific parameter.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aResClass	The namespace of main resource package plus the resource's group.
 	 * @param	aResName	The name of the expected resource.
 	 * @return	The resource id.
@@ -93,7 +93,7 @@ public class ResUtils
 	
 	/**
 	 * Gets the layout resource id of <u>aResName</u>.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aResClass	The namespace of main resource package.
 	 * @param	aResName	The name of the expected layout resource.
 	 * @return	The resource id.
@@ -110,7 +110,7 @@ public class ResUtils
 	
 	/**
 	 * Gets the drawable resource id of <u>aResName</u>.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aResClass	The namespace of main resource package.
 	 * @param	aResName	The name of the expected drawable resource.
 	 * @return	The resource id.
@@ -127,7 +127,7 @@ public class ResUtils
 	
 	/**
 	 * Gets the id resource id of <u>aResName</u>.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aResClass	The namespace of main resource package.
 	 * @param	aResName	The name of the expected id resource.
 	 * @return	The resource id.
@@ -144,7 +144,7 @@ public class ResUtils
 	
 	/**
 	 * Gets the color resource id of <u>aResName</u>.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aResClass	The namespace of main resource package.
 	 * @param	aResName	The name of the expected color resource.
 	 * @return	The resource id.
@@ -161,7 +161,7 @@ public class ResUtils
 	
 	/**
 	 * Gets the string resource id of <u>aResName</u>.
-	 * @since	0.2.0
+	 * @since	0.1.0
 	 * @param	aResClass	The namespace of main resource package.
 	 * @param	aResName	The name of the expected string resource.
 	 * @return	The resource id.
@@ -178,7 +178,7 @@ public class ResUtils
 
 	/**
 	 * Gets the anim resource id of <u>aResName</u>.
-	 * @since	1.0.0
+	 * @since	0.1.0
 	 * @param	aResClass	The namespace of main resource package.
 	 * @param	aResName	The name of the expected anim resource.
 	 * @return	The resource id.
