@@ -6,7 +6,7 @@ package id.web.tanudjaja.android.common.port;
  * @author	Matthew Tanudjaja
  * @since	0.1.2
  */
-public class errno
+public final class errno
 {
 	// Successful operation is usually symbolized with 0, the following line is not part of standard errno enumeration
 	public final static int SUCCESS			=	0;
