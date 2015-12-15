@@ -5,7 +5,6 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 final String androidHome=System.getenv("ANDROID_HOME")
-final String androidLibRepo=System.getenv("ANDROID_LIB_REPO")
 final String androidVer=22
 final String androidJarPath=androidHome+"/platforms/android-"+androidVer
 
@@ -17,13 +16,18 @@ repositories
 {
 	mavenCentral()
 	mavenLocal()
-	flatDir { dirs androidJarPath, androidLibRepo }
+	flatDir { dirs androidJarPath }
 }
 
 dependencies
 {
 	compile name: 'android'
 	testCompile 'junit:junit:4.12'
+}
+
+install.repositories.mavenInstaller.pom.whenConfigured
+{
+	pom -> pom.dependencies.removeAll { it.scope == "compile" }
 }
 
 //task(install, dependsOn: build) <<
