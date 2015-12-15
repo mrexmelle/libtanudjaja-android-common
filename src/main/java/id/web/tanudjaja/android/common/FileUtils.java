@@ -64,7 +64,6 @@ public final class FileUtils
 			}
 			catch(IOException e1)
 			{
-				
 			}
 			throw e;
 		}
@@ -78,6 +77,7 @@ public final class FileUtils
 	 * @return	The content of the file.
 	 */	
 	public static String loadFromInternalStorage(Context aContext, String aFilename)
+		throws IOException
 	{
 		FileInputStream fis=null;
 		try
@@ -88,14 +88,14 @@ public final class FileUtils
 		    int bytesRead=0;
 		    while(true)
 		    {
-			stdc.memset(buffer, 0x0, buffer.length);
-			int singleRead=fis.read(buffer, 0, buffer.length-1);
-			if(singleRead==-1)
-			{
-			    break;
-			}
-			bytesRead+=singleRead;
-			readJson+=new String(buffer, 0, singleRead);
+				stdc.memset(buffer, 0x0, buffer.length);
+				int singleRead=fis.read(buffer, 0, buffer.length-1);
+				if(singleRead==-1)
+				{
+					break;
+				}
+				bytesRead+=singleRead;
+				readJson+=new String(buffer, 0, singleRead);
 		    }
 		    return readJson;
 		}
@@ -108,11 +108,10 @@ public final class FileUtils
 					fis.close();
 				}
 		    }
-		    catch(Exception e1)
+		    catch(IOException e1)
 		    {
-				return "";
 		    }
-		    return "";
+		    throw e;
 		}
 	}
 
