@@ -190,6 +190,8 @@ public final class AppUtils
 				return "xhdpi";
 			case DisplayMetrics.DENSITY_XXHIGH:
 				return "xxhdpi";
+			case DisplayMetrics.DENSITY_XXXHIGH:
+				return "xxxhdpi";
 			default:
 				return "";
 		}
