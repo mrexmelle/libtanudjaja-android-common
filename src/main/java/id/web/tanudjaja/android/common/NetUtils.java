@@ -36,61 +36,6 @@ public final class NetUtils
 	private NetUtils() {}
 	
 	/**
-	 * Opens connection to specified <u>aUrl</u>.
-	 * @since	0.1.0
-	 * @param	aUrl The URL to which a connection is established.
-	 * @throws	MalformedURLException The specified <u>aUrl</u> is invalid.
-	 * @throws	IOException Cannot establish connection to the specified <u>aUrl</u>.
-	 * @return	URLConnection A URLConnection class that stores information about the connection.
-	 */
-	public static URLConnection openConnectionL(String aUrl)
-		throws MalformedURLException, IOException
-	{
-		// initiate URL
-		URL url=null;
-		try
-		{
-			url=new URL(aUrl);
-		}
-		catch (MalformedURLException e)
-		{
-			throw e;
-		}
-		
-		// open the connection
-		try
-		{
-			return url.openConnection();
-		}
-		catch (IOException e)
-		{
-			throw e;
-		}
-	}
-	
-	/**
-	 * Adds header fields to <u>aConnection</u>.
-	 * @since	0.1.0
-	 * @param	aConnection The connection to which the header fields are appended.
-	 * @param	aHeaderFields A map of header fields to be appended.
-	 * @return	URLConnection A pointer to aConnection.
-	 */
-	public static URLConnection addHeaderFields(URLConnection aConnection, Map<String, String> aHeaderFields)
-	{
-		URLConnection con=aConnection;
-		
-		if (aHeaderFields != null)
-		{
-			for (Map.Entry<String, String> field : aHeaderFields.entrySet())
-			{
-				con.setRequestProperty(field.getKey(), field.getValue());
-			}
-		}
-		
-		return con;
-	}
-	
-	/**
 	 * A class that holds the MCC and MNC information.
 	 * @author	Matthew Tanudjaja
 	 * @since	0.1.0
